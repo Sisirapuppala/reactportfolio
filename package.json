@@ -1,0 +1,46 @@
+{
+  "name": "sisira",
+  "version": "1.0.0",
+  "description": "Sisira Puppala Portfolio Website",
+  "main": "app.js",
+  "engines": {
+    "node": "12.16.2",
+    "npm": "6.14.4"
+  },
+  "scripts": {
+    "watch:sass": "node-sass ./public/stylesheets/sass/main.scss ./public/stylesheets/css/style.css -w",
+    "devserver": "live-server --browser=firefox",
+    "dev": "npm-run-all --parallel devserver watch:sass",
+    "start": "node app.js",
+    "compile:sass": "node-sass ./public/stylesheets/sass/main.scss ./public/stylesheets/css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' ./public/stylesheets/css/style.comp.css -o ./public/stylesheets/css/style.prefix.css",
+    "compress:css": "node-sass ./public/stylesheets/css/style.prefix.css ./public/stylesheets/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "author": "sisira",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "concat": "^1.0.3",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.4",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.0",
+    "express-session": "^1.17.1",
+    "nodemailer": "^6.4.11",
+    "req-flash": "0.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sisirapuppala/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sisirapuppala/portfolio/issues"
+  },
+  "homepage": "https://github.com/Sisirapuppala/portfolio#readme"
+}
